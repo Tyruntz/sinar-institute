@@ -7,6 +7,8 @@ import {
 } from '@/components/home/index'
 import ContactSection from '@/components/layout/ContactSection'
 
+export const revalidate = 60
+
 export const metadata: Metadata = {
   title: 'SINAR Institute | Real-World Evidence for Coastal Communities',
   description: 'Independent Research Institute for Coastal Health and Community Development.',
