@@ -122,6 +122,13 @@ export interface SiteSettings {
   heroImageSecondary?: { url: string; alt: string; credit?: string }
 }
 
-export async function getSiteSettings(): Promise<SiteSettings> {
-  return client.fetch(siteSettingsQuery) ?? {}
+export async function getSiteSettings(): Promise<any> {
+  return client.fetch(`*[_type == "siteSettings" && _id == "siteSettings"][0] {
+    "heroImages": heroImages[]{
+      "url": asset->url,
+      alt,
+      credit
+    },
+    "heroImage": heroImage{ "url": asset->url, alt, credit }
+  }`) ?? {}
 }

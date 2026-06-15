@@ -4,32 +4,28 @@ export default defineType({
   name: 'siteSettings',
   title: 'Site Settings',
   type: 'document',
-  __experimental_actions: ['update', 'publish'], // prevent create/delete — singleton
+  __experimental_actions: ['update', 'publish'],
   fields: [
     defineField({
-      name: 'heroImage',
-      title: 'Hero Image (Homepage)',
-      type: 'image',
-      options: { hotspot: true },
-      fields: [
-        {
-          name: 'alt',
-          type: 'string',
-          title: 'Alt Text',
-          validation: (R) => R.required(),
-        },
-        {
-          name: 'credit',
-          type: 'string',
-          title: 'Kredit Foto / Fotografer',
-        },
-      ],
-      description: 'Foto utama yang tampil di hero section homepage.',
+      name: 'heroImages',
+      title: 'Hero Images (Slideshow)',
+      type: 'array',
+      of: [{
+        type: 'image',
+        options: { hotspot: true },
+        fields: [
+          { name: 'alt', type: 'string', title: 'Alt Text', validation: (R) => R.required() },
+          { name: 'credit', type: 'string', title: 'Kredit Foto' },
+        ],
+      }],
+      description: 'Upload 3-5 foto landscape. Berganti otomatis tiap 6 detik.',
+      validation: (R) => R.max(5),
     }),
     defineField({
-      name: 'heroImageSecondary',
-      title: 'Hero Image Secondary (opsional)',
+      name: 'heroImage',
+      title: 'Hero Image (lama)',
       type: 'image',
+      hidden: true,
       options: { hotspot: true },
       fields: [
         { name: 'alt', type: 'string', title: 'Alt Text' },
@@ -38,8 +34,6 @@ export default defineType({
     }),
   ],
   preview: {
-    prepare() {
-      return { title: 'Site Settings' }
-    },
+    prepare() { return { title: 'Site Settings' } },
   },
 })

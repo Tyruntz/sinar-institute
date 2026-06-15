@@ -1,14 +1,15 @@
 import type { Metadata } from 'next'
 import { getLatestInsights, getActiveProjects, getPartners, getSiteSettings } from '@/lib/queries'
+import Hero from '@/components/home/Hero'
 import {
-  Hero, ApproachSection, FeaturedResearch,
+  ApproachSection, FeaturedResearch,
   WhyCoastal, LatestInsights, PartnerStrip, PartnershipCTA
 } from '@/components/home/index'
 import ContactSection from '@/components/layout/ContactSection'
 
 export const metadata: Metadata = {
   title: 'SINAR Institute | Real-World Evidence for Coastal Communities',
-  description: 'Independent Research Institute for Coastal Health and Community Development. We advance coastal health through population, clinical, and translational research.',
+  description: 'Independent Research Institute for Coastal Health and Community Development.',
   openGraph: {
     title: 'SINAR Institute',
     description: 'Real-World Evidence for Coastal Communities',
@@ -26,20 +27,9 @@ export default async function HomePage() {
 
   const featuredProject = projects[0] ?? null
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'SINAR Institute',
-    description: 'Independent Research Institute for Coastal Health and Community Development',
-    url: 'https://sinarinstitute.com',
-    email: 'partnerships@sinarinstitute.com',
-    sameAs: ['https://instagram.com/sinarinstitute'],
-  }
-
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <Hero heroImage={siteSettings?.heroImage} />
+      <Hero heroImages={siteSettings?.heroImages ?? []} />
       <ApproachSection />
       <FeaturedResearch project={featuredProject} />
       <WhyCoastal />
