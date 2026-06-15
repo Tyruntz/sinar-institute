@@ -40,7 +40,7 @@ Sent via sinarinstitute.com contact form
     `.trim()
 
     await resend.emails.send({
-      from: 'SINAR Institute Website <onboarding@resend.dev>',
+      from: 'SINAR Institute Website <noreply@sinarinstitute.com>',
       to: ['partnerships@sinarinstitute.com'],
       replyTo: email,
       subject: `[${enquiryType || 'General Enquiry'}] Message from ${name}`,
