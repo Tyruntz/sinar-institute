@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getActiveProjects, getPublications } from '@/lib/queries'
 import { ResearchTabs } from '@/components/research/ResearchTabs'
 import ContactSection from '@/components/layout/ContactSection'
+export const revalidate = 60
 
 export const metadata: Metadata = {
   title: 'Research Portfolio',

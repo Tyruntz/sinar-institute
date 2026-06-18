@@ -5,6 +5,7 @@ import {
   CoreValues, Leadership, InstitutionalRelationships, GetInvolved
 } from '@/components/about/index'
 import ContactSection from '@/components/layout/ContactSection'
+export const revalidate = 60
 
 export const metadata: Metadata = {
   title: 'About SINAR',

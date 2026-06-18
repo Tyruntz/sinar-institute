@@ -6,6 +6,7 @@ import { PortableText } from '@portabletext/react'
 import { getInsightBySlug, getInsightSlugs, getRelatedInsights } from '@/lib/queries'
 import { ArticleCard } from '@/components/insights/InsightsBrowser'
 import ContactSection from '@/components/layout/ContactSection'
+export const revalidate = 60
 
 interface Props {
   params: { slug: string }

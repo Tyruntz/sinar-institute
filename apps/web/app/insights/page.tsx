@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getInsights } from '@/lib/queries'
 import { InsightsBrowser } from '@/components/insights/InsightsBrowser'
 import ContactSection from '@/components/layout/ContactSection'
+export const revalidate = 60
 
 export const metadata: Metadata = {
   title: 'Insights & Updates',

@@ -112,10 +112,10 @@ export async function getPartners(): Promise<Partner[]> {
 
 // ─── Site Settings ────────────────────────────────────────────────────────────
 
-const siteSettingsQuery = `*[_type == "siteSettings" && _id == "siteSettings"][0] {
-  "heroImage": heroImage{ "url": asset->url, alt, credit },
-  "heroImageSecondary": heroImageSecondary{ "url": asset->url, alt, credit }
-}`
+// const siteSettingsQuery = `*[_type == "siteSettings" && _id == "siteSettings"][0] {
+//   "heroImage": heroImage{ "url": asset->url, alt, credit },
+//   "heroImageSecondary": heroImageSecondary{ "url": asset->url, alt, credit }
+// }`
 
 export interface SiteSettings {
   heroImage?: { url: string; alt: string; credit?: string }
